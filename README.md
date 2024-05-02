@@ -1,1 +1,1 @@
-MVVM application with a Mongo database
+MVVM application with MongoDB and mongoDb.Driver
