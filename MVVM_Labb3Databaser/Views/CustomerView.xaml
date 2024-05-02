@@ -1,0 +1,71 @@
+﻿<UserControl
+    x:Class="Labb3Databaser.Views.CustomerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customerViews="clr-namespace:Labb3Databaser.Views.CustomerViews"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Labb3Databaser.Views.CustomerViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="1300"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TabControl Grid.Column="0">
+            <TabControl VerticalAlignment="Stretch" TabStripPlacement="Left">
+                <TabItem>
+                    <TabItem.Header>
+                        <Border Padding="5">
+                            <TextBlock Margin="0,0,70,0" Text="Shop" />
+                        </Border>
+                    </TabItem.Header>
+                    <local:ShopView />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Border Padding="5">
+                            <TextBlock Margin="0,0,70,0" Text="Checkout" />
+                        </Border>
+                    </TabItem.Header>
+                    <local:CheckoutView />
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <Border Padding="5">
+                            <TextBlock Margin="0,0,70,0" Text="Profile" />
+                        </Border>
+                    </TabItem.Header>
+                    <local:Profile />
+                </TabItem>
+            </TabControl>
+        </TabControl>
+
+        <Grid Grid.Column="1">
+            <ContentControl x:Name="MainContentControl" />
+        </Grid>
+        <Label
+            Name="UserName"
+            Grid.Row="0"
+            Grid.Column="0"
+            Width="100"
+            Height="30"
+            Margin="10,0,0,40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom" />
+        <Button
+            Name="LogOutBtn"
+            Grid.Row="0"
+            Grid.Column="0"
+            Width="100"
+            Height="30"
+            Margin="10,0,0,10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Click="LogOutBtn_OnClick"
+            Content="Log out" />
+    </Grid>
+</UserControl>

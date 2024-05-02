@@ -1,0 +1,23 @@
+﻿<Window x:Class="Labb3Databaser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Labb3Databaser"
+        xmlns:views="clr-namespace:Labb3Databaser.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1300">
+    <Grid>
+        <TabControl x:Name="MainTabControl">
+            <TabItem Name="LoginTab" Header="Login">
+                <views:LoginView />
+            </TabItem>
+            <TabItem Name="AdminTab" Header="Admin" Visibility="Collapsed">
+                <views:AdminView/>
+            </TabItem>
+            <TabItem Name="ShopTab" Header="Customer" Visibility="Collapsed">
+                <views:CustomerView/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

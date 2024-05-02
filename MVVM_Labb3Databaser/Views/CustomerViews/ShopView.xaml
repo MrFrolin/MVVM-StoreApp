@@ -1,0 +1,156 @@
+﻿<UserControl
+    x:Class="Labb3Databaser.Views.CustomerViews.ShopView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Labb3Databaser.Views.CustomerViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="1300"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="40" />
+            <RowDefinition />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Label
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Bottom"
+            Content="Cart" />
+        <ListView
+            Name="CartView"
+            Grid.Row="3"
+            Grid.Column="1"
+            SelectionChanged="CartViewView_OnSelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding ProductName}"
+                        Header="Name" />
+                    <GridViewColumn
+                        Width="50"
+                        DisplayMemberBinding="{Binding ProductPrice}"
+                        Header="Price" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding ProductType}"
+                        Header="Category" />
+                    <GridViewColumn
+                        Width="50"
+                        DisplayMemberBinding="{Binding ProductCount}"
+                        Header="Qty" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button
+                Name="RemoveFromCart"
+                Grid.Column="0"
+                Width="100"
+                HorizontalAlignment="Right"
+                Click="RemoveFromCart_OnClick"
+                Content="Remove from Cart" />
+            <Label
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Content="Qty:" />
+            <TextBox
+                Name="QtyBox"
+                Grid.Row="0"
+                Grid.Column="2"
+                Width="50"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center" />
+            <Button
+                Name="QtyUpdBtn"
+                Grid.Column="3"
+                Width="70"
+                HorizontalAlignment="Left"
+                Click="QtyUpdBtn_OnClick"
+                Content="Update" />
+        </Grid>
+        <ComboBox
+            Name="StoresComboBoxCustomerView"
+            Grid.Row="2"
+            Grid.Column="3"
+            Width="150"
+            Height="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Center"
+            DisplayMemberPath="StoreName"
+            IsEditable="True"
+            IsReadOnly="True"
+            SelectionChanged="StoresComboBoxCustomerView_OnSelectionChanged"
+            Text="-- Select Store --" />
+        <ListView
+            Name="StoreStock"
+            Grid.Row="3"
+            Grid.Column="3"
+            SelectionChanged="StoreStock_OnSelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="250"
+                        DisplayMemberBinding="{Binding ProductName}"
+                        Header="Title" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding ProductPrice}"
+                        Header="Price" />
+                    <GridViewColumn
+                        Width="100"
+                        DisplayMemberBinding="{Binding ProductCount}"
+                        Header="Stock" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid Grid.Row="5" Grid.Column="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button
+                Name="AddToCartBtn"
+                Grid.Column="0"
+                Width="100"
+                HorizontalAlignment="Right"
+                Click="AddToCartBtn_OnClick"
+                Content="Add to Cart" />
+            <Label
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Content="Qty:" />
+            <TextBox
+                Name="StockBox"
+                Grid.Row="0"
+                Grid.Column="2"
+                Width="50"
+                HorizontalAlignment="Left"
+                VerticalContentAlignment="Center" />
+        </Grid>
+    </Grid>
+</UserControl>
